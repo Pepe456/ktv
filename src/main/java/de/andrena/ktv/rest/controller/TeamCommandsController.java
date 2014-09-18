@@ -58,13 +58,11 @@ public class TeamCommandsController {
 			return new ResponseEntity<>(NOT_FOUND);
 		}
 
-		RestTeam team = RestTeam.fromTeamDetails(teamDeletedEvent.getTeamDetails());
-
-		if (teamDeletedEvent.isDeletionCompleted()) {
-			return new ResponseEntity<>(team, OK);
+		if (!teamDeletedEvent.isDeletionCompleted()) {
+			return new ResponseEntity<>(FORBIDDEN);
 		}
 
-		return new ResponseEntity<>(team, FORBIDDEN);
+		return new ResponseEntity<>(OK);
 	}
 
 	@RequestMapping(method = PUT, value = "/{id}")

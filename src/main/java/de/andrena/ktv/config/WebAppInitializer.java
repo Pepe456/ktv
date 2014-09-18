@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
-import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
@@ -19,30 +18,25 @@ public class WebAppInitializer implements WebApplicationInitializer {
 	private static Logger LOG = LoggerFactory.getLogger(WebAppInitializer.class);
 
 	@Override
-	public void onStartup(ServletContext servletContext) throws ServletException {
-		WebApplicationContext rootContext = this.createRootContext(servletContext);
-		this.configureSpringMvc(servletContext, rootContext);
-	}
-
-	private WebApplicationContext createRootContext(ServletContext servletContext) {
+	public void onStartup(ServletContext container) throws ServletException {
+		// Create the root spring context
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-		rootContext.register(CoreInMemoryConfig.class);
+		rootContext.register(CoreConfig.class, PersistenceConfig.class);
 		rootContext.refresh();
 
-		servletContext.addListener(new ContextLoaderListener(rootContext));
-		servletContext.setInitParameter("defaultHtmlEscape", "true");
+		// Manage the lifcycle of the root application
+		container.addListener(new ContextLoaderListener(rootContext));
+		container.setInitParameter("defaultHtmlEscape", "true");
 
-		return rootContext;
-	}
-
-	private void configureSpringMvc(ServletContext servletContext, WebApplicationContext rootContext) {
+		// Create the dispatcher servlet spring application context
 		AnnotationConfigWebApplicationContext mvcContext = new AnnotationConfigWebApplicationContext();
 		mvcContext.register(MVCConfig.class);
-
 		mvcContext.setParent(rootContext);
-		ServletRegistration.Dynamic appServlet = servletContext.addServlet("webservice", new DispatcherServlet(mvcContext));
-		appServlet.setLoadOnStartup(1);
-		Set<String> mappingConflicts = appServlet.addMapping("/");
+
+		// Create and map the dispatcher servlet
+		ServletRegistration.Dynamic dispatcher = container.addServlet("webservice", new DispatcherServlet(mvcContext));
+		dispatcher.setLoadOnStartup(1);
+		Set<String> mappingConflicts = dispatcher.addMapping("/");
 
 		if (!mappingConflicts.isEmpty()) {
 			for (String s : mappingConflicts) {

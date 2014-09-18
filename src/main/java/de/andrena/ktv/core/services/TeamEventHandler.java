@@ -1,5 +1,7 @@
 package de.andrena.ktv.core.services;
 
+import de.andrena.ktv.core.domain.Team;
+import de.andrena.ktv.core.domain.TeamDetails;
 import de.andrena.ktv.core.events.teams.CreateTeamEvent;
 import de.andrena.ktv.core.events.teams.CreatedTeamEvent;
 import de.andrena.ktv.core.events.teams.DeleteTeamEvent;
@@ -22,7 +24,9 @@ public class TeamEventHandler implements TeamService {
 
 	@Override
 	public CreatedTeamEvent createTeam(CreateTeamEvent event) {
-		return this.persistenceService.createTeam(event);
+		TeamDetails teamDetails = event.getTeamDetails();
+		Team team = Team.fromTeamDetailsWithNewRandomKey(teamDetails);
+		return this.persistenceService.createTeam(new CreateTeamEvent(team.toTeamDetails()));
 	}
 
 	@Override

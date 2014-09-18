@@ -12,6 +12,7 @@ public class DeletedTeamEvent extends DeletedEvent {
 
 	public DeletedTeamEvent(UUID key) {
 		this.key = key;
+		this.deletionCompleted = true;
 	}
 
 	public DeletedTeamEvent(UUID key, TeamDetails teamDetails) {
@@ -41,6 +42,7 @@ public class DeletedTeamEvent extends DeletedEvent {
 
 	public static DeletedTeamEvent notFound(UUID key) {
 		DeletedTeamEvent event = new DeletedTeamEvent(key);
+		event.deletionCompleted = false;
 		event.entityFound = false;
 		return event;
 	}

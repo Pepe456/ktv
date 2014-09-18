@@ -85,12 +85,18 @@ public class TeamPersistenceEventHandler implements TeamPersistenceService {
 
 	@Override
 	public DeletedTeamEvent deleteTeam(DeleteTeamEvent deleteTeamEvent) {
-		RepositoryTeam team = this.teamsRepository.findOne(deleteTeamEvent.getKey().toString());
-		if (team == null) {
+		UUID key = deleteTeamEvent.getKey();
+		RepositoryTeam team = null;
+		if ((team = this.teamsRepository.findOne(key.toString())) == null) {
 			return DeletedTeamEvent.notFound(deleteTeamEvent.getKey());
 		}
 
 		this.teamsRepository.delete(deleteTeamEvent.getKey().toString());
+
+		if ((team = this.teamsRepository.findOne(key.toString())) != null) {
+			return DeletedTeamEvent.deletionForbidden(key, team.toTeamDetails());
+		}
+
 		return new DeletedTeamEvent(deleteTeamEvent.getKey());
 	}
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.561" errors="0" skipped="0" tests="5" name="de.andrena.ktv.system.TeamSystemTest">
+<testsuite failures="0" time="0.608" errors="0" skipped="0" tests="5" name="de.andrena.ktv.system.TeamSystemTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_60\jre\bin"/>
@@ -61,9 +61,9 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.098" classname="de.andrena.ktv.system.TeamSystemTest" name="thatTeamsCanBeUpdated"/>
+  <testcase time="0.111" classname="de.andrena.ktv.system.TeamSystemTest" name="thatTeamsCanBeUpdated"/>
   <testcase time="0.057" classname="de.andrena.ktv.system.TeamSystemTest" name="thatTeamsCanBeQueried"/>
-  <testcase time="0.067" classname="de.andrena.ktv.system.TeamSystemTest" name="thatTeamsCanBeDeleted"/>
-  <testcase time="0.036" classname="de.andrena.ktv.system.TeamSystemTest" name="thatTeamsCanBeAdded"/>
-  <testcase time="0.303" classname="de.andrena.ktv.system.TeamSystemTest" name="thatTeamsCanBeRetrievedAsList"/>
+  <testcase time="0.076" classname="de.andrena.ktv.system.TeamSystemTest" name="thatTeamsCanBeDeleted"/>
+  <testcase time="0.048" classname="de.andrena.ktv.system.TeamSystemTest" name="thatTeamsCanBeAdded"/>
+  <testcase time="0.316" classname="de.andrena.ktv.system.TeamSystemTest" name="thatTeamsCanBeRetrievedAsList"/>
 </testsuite>

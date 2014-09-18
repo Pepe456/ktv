@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.305" errors="0" skipped="0" tests="8" name="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest">
+<testsuite failures="0" time="0.256" errors="0" skipped="0" tests="8" name="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_60\jre\bin"/>
@@ -61,12 +61,12 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.239" classname="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest" name="thatUpdateTeamUsesNotFound"/>
+  <testcase time="0.194" classname="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest" name="thatUpdateTeamUsesNotFound"/>
   <testcase time="0.018" classname="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest" name="thatDeleteTeamWorks"/>
-  <testcase time="0.003" classname="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest" name="thatReadTeamUsesNotFound"/>
-  <testcase time="0.004" classname="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest" name="thatUpdateTeamWorks"/>
-  <testcase time="0.013" classname="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest" name="thatReadAllTeamsWorks"/>
-  <testcase time="0.01" classname="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest" name="thatDeleteUsesNotFound"/>
-  <testcase time="0.009" classname="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest" name="thatCreateOrderWorks"/>
-  <testcase time="0.009" classname="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest" name="thatReadTeamWorks"/>
+  <testcase time="0.006" classname="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest" name="thatReadTeamUsesNotFound"/>
+  <testcase time="0.009" classname="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest" name="thatUpdateTeamWorks"/>
+  <testcase time="0.011" classname="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest" name="thatReadAllTeamsWorks"/>
+  <testcase time="0.005" classname="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest" name="thatDeleteUsesNotFound"/>
+  <testcase time="0.005" classname="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest" name="thatCreateOrderWorks"/>
+  <testcase time="0.008" classname="de.andrena.ktv.persistence.integration.ServiceAndRepositoryTest" name="thatReadTeamWorks"/>
 </testsuite>

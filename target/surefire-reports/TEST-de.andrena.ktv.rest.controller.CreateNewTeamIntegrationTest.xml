@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.121" errors="0" skipped="0" tests="3" name="de.andrena.ktv.rest.controller.CreateNewTeamIntegrationTest">
+<testsuite failures="0" time="0.106" errors="0" skipped="0" tests="3" name="de.andrena.ktv.rest.controller.CreateNewTeamIntegrationTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_60\jre\bin"/>
@@ -61,7 +61,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.039" classname="de.andrena.ktv.rest.controller.CreateNewTeamIntegrationTest" name="thatCreateTeamUsesHttpCreated"/>
-  <testcase time="0.02" classname="de.andrena.ktv.rest.controller.CreateNewTeamIntegrationTest" name="thatCreateTeamRendersAsJSON"/>
-  <testcase time="0.062" classname="de.andrena.ktv.rest.controller.CreateNewTeamIntegrationTest" name="thatCreateOrderPassesLocationHeader"/>
+  <testcase time="0.032" classname="de.andrena.ktv.rest.controller.CreateNewTeamIntegrationTest" name="thatCreateTeamUsesHttpCreated"/>
+  <testcase time="0.063" classname="de.andrena.ktv.rest.controller.CreateNewTeamIntegrationTest" name="thatCreateTeamRendersAsJSON"/>
+  <testcase time="0.011" classname="de.andrena.ktv.rest.controller.CreateNewTeamIntegrationTest" name="thatCreateOrderPassesLocationHeader"/>
 </testsuite>
