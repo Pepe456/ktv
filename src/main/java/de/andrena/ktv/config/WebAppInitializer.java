@@ -19,21 +19,17 @@ public class WebAppInitializer implements WebApplicationInitializer {
 
 	@Override
 	public void onStartup(ServletContext container) throws ServletException {
-		// Create the root spring context
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
 		rootContext.register(CoreConfig.class, PersistenceConfig.class);
 		rootContext.refresh();
 
-		// Manage the lifcycle of the root application
 		container.addListener(new ContextLoaderListener(rootContext));
 		container.setInitParameter("defaultHtmlEscape", "true");
 
-		// Create the dispatcher servlet spring application context
 		AnnotationConfigWebApplicationContext mvcContext = new AnnotationConfigWebApplicationContext();
 		mvcContext.register(MVCConfig.class);
 		mvcContext.setParent(rootContext);
 
-		// Create and map the dispatcher servlet
 		ServletRegistration.Dynamic dispatcher = container.addServlet("webservice", new DispatcherServlet(mvcContext));
 		dispatcher.setLoadOnStartup(1);
 		Set<String> mappingConflicts = dispatcher.addMapping("/");
